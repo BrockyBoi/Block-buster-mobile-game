@@ -45,12 +45,12 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CameraScript.cs" />
-     <Compile Include="Assets\GameControllerScript.cs" />
      <Compile Include="Assets\Scripts\BlackHoleBlock.cs" />
      <Compile Include="Assets\Scripts\BlockScript.cs" />
+     <Compile Include="Assets\Scripts\CameraScript.cs" />
      <Compile Include="Assets\Scripts\ExplosionBlockScript.cs" />
      <Compile Include="Assets\Scripts\FrezeBlockScript.cs" />
+     <Compile Include="Assets\Scripts\GameControllerScript.cs" />
      <Compile Include="Assets\Scripts\MouseControllerScript.cs" />
      <Compile Include="Assets\Scripts\MultiplierBlockScript.cs" />
      <Compile Include="Assets\Scripts\MultiplierSpawnScript.cs" />

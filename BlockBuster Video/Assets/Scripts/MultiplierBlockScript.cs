@@ -21,8 +21,6 @@ public class MultiplierBlockScript : PhysicsBlockScript {
     // Update is called once per frame
    public override void Update() {
         base.Update();
-
-        spawnBlock();
 	}
 
 	void multiply()
@@ -35,7 +33,6 @@ public class MultiplierBlockScript : PhysicsBlockScript {
 	public override void OnMouseDown()
 	{
 		multiply ();
-        blockList.Remove(thisBlock);
-        Destroy(gameObject);
+        destroyBlock();
 	}
 }

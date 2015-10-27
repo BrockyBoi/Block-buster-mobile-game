@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 using System.Collections;
 
 public class CameraScript : MonoBehaviour {
     public float colDepth = 4f;
     public float zPosition = 0f;
     public static Vector2 screenSize;
-    private Transform topCollider;
-    private Transform bottomCollider;
-    private Transform leftCollider;
-    private Transform rightCollider;
+    public Transform topCollider;
+    public Transform bottomCollider;
+    public Transform leftCollider;
+    public Transform rightCollider;
     private Vector3 cameraPos;
 
     // Use this for initialization
@@ -16,6 +17,8 @@ public class CameraScript : MonoBehaviour {
         Debug.Log(Screen.currentResolution);
         Debug.Log("Screen width: " + Screen.width);
         Debug.Log("Screen height: " + Screen.height);
+        screenSize = new Vector2(Screen.width,  Screen.height);
+  
 
     http://forum.unity3d.com/threads/collision-with-sides-of-screen.228865/
         //Generate our empty objects
@@ -60,6 +63,6 @@ public class CameraScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+
+        }
 }

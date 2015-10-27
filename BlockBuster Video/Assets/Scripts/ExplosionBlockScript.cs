@@ -36,6 +36,7 @@ public class ExplosionBlockScript : PhysicsBlockScript {
     public override void Update () {
         base.Update();
         spawnBlock();
+        grow();
 
 		maxExplosionSize = transform.localScale.x * .02f;
 
@@ -88,6 +89,7 @@ public class ExplosionBlockScript : PhysicsBlockScript {
                 Vector2 direction = explosionForce * (target - bomb);
 
                 collider.gameObject.GetComponent<Rigidbody2D>().AddForce(direction);
+                collider.gameObject.SendMessage("flyAway") ;
             }
         }
 	}

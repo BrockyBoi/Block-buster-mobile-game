@@ -47,10 +47,14 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BossScripts\LargeBossScript.cs" />
      <Compile Include="Assets\Scripts\BossScripts\MediumBossScript.cs" />
+     <Compile Include="Assets\Scripts\BossScripts\SmallBoss2.cs" />
+     <Compile Include="Assets\Scripts\BossScripts\SmallBoss3.cs" />
      <Compile Include="Assets\Scripts\BossScripts\SmallBossScript.cs" />
      <Compile Include="Assets\Scripts\ControllerScripts\CameraScript.cs" />
      <Compile Include="Assets\Scripts\ControllerScripts\GameControllerScript.cs" />
+     <Compile Include="Assets\Scripts\ControllerScripts\MenuScript.cs" />
      <Compile Include="Assets\Scripts\ControllerScripts\MouseControllerScript.cs" />
+     <Compile Include="Assets\Scripts\ControllerScripts\ScreenRelativePosition.cs" />
      <Compile Include="Assets\Scripts\RegularBlockScripts\BlackHoleBlock.cs" />
      <Compile Include="Assets\Scripts\RegularBlockScripts\BlockScript.cs" />
      <Compile Include="Assets\Scripts\RegularBlockScripts\ExplosionBlockScript.cs" />
@@ -58,7 +62,6 @@
      <Compile Include="Assets\Scripts\RegularBlockScripts\MultiplierBlockScript.cs" />
      <Compile Include="Assets\Scripts\RegularBlockScripts\MultiplierSpawnScript.cs" />
      <Compile Include="Assets\Scripts\RegularBlockScripts\PhysicsBlockScript.cs" />
-     <Compile Include="Assets\Scripts\ScreenRelativePosition.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

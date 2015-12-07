@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
 
@@ -11,6 +12,8 @@ public class GameControllerScript : MonoBehaviour {
 
     float screenSize;
 
+    //Text
+    public Text healthText;
 
     //Spawn system
     float currentTime;
@@ -67,9 +70,9 @@ public class GameControllerScript : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
+    void Start () { 
 
-        spawnSmallBoss();
+        //spawnSmallBoss();
 
         //spawnMediumBoss();
 
@@ -107,18 +110,25 @@ public class GameControllerScript : MonoBehaviour {
         bossAttack = 20;
 
         blockScript.newVariables(attackRate, growRate, regularDamage, blockHealth, bossAttack);
+
+        //Text
+        healthText.text = "Health: " + health;
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        //spawnSystem();
+       spawnSystem();
 
         difficulty();
 
-        if(health <= 0)
+        if(health > 0)
         {
-            Debug.Log("deaderino");
+            healthText.text = "Health: " + health;
+        }
+        else
+        {
+            healthText.text = "Deaderinio";
         }
 
     }
@@ -224,7 +234,7 @@ public class GameControllerScript : MonoBehaviour {
 
     void spawnSmallBoss()
     {
-        Instantiate(smallBoss, new Vector3(0, 0,0), Quaternion.identity);
+        Instantiate(smallBoss, new Vector3(0, 0, 0), Quaternion.identity);
     }
 
     void spawnMediumBoss()

@@ -2,7 +2,9 @@
 using System.Collections;
 
 public class SmallBossScript : PhysicsBlockScript {
-    public GameObject smallBoss;
+    public GameObject smallBoss2;
+    public GameObject smallBoss3;
+
     float rightNow;
     private bool teleporting;
     private float nextTeleport;
@@ -15,13 +17,15 @@ public class SmallBossScript : PhysicsBlockScript {
     int size3;
 
     private Vector3 previousSize;
-    private Vector3 size;
+    public Vector3 size;
 
 	// Use this for initialization
 	public override void Start () {
         base.Start();
-        health = 10;
-        transform.localScale = new Vector3(100 , 100, 0);
+        launch();
+        transform.localScale = size;
+        health = 2;
+        //transform.localScale = new Vector3(100 , 100, 0);
         size1 = 100;
         size2 = 66;
         size3 = 33;
@@ -82,13 +86,49 @@ public class SmallBossScript : PhysicsBlockScript {
     public override void OnMouseDown()
     {
 
-        if (size == new Vector3(size1, size1, 0)) 
+        health--;
+        if(health <= 0)
+        {
+            split();
+            health = 2;
+        }
+        
+    }
+
+    //public void returnBoss()
+    //{
+    //    GameObject boss = Instantiate(smallBoss) as GameObject;
+    //    SmallBossScript script = boss.GetComponent<SmallBossScript>();
+
+    //    if (previousSize == new Vector3(size1, size1, 0))
+    //    {
+    //        script.setSize(new Vector3(size2, size2, 0));
+    //        script.size = transform.localScale;
+    //        script.maxSize = transform.localScale;
+
+    //        script.launch();
+    //    }
+    //    else if (previousSize == new Vector3(size2, size2, 0))
+    //    {
+    //        script.transform.localScale = new Vector3(size2, size2, 0);
+    //        script.size = transform.localScale;
+    //        script.maxSize = transform.localScale;
+
+    //        script.launch();
+    //    }
+    //    // smallBoss = Instantiate(smallBoss) as GameObject;
+    //    // return boss;
+    //}
+    public void split()
+    {
+        if (size == new Vector3(size1, size1, 0))
         {
             previousSize = size;
             transform.localScale = new Vector3(size2, size2, 0);
             size = transform.localScale;
             maxSize = transform.localScale;
-            returnBoss();
+            Instantiate(smallBoss2, new Vector2(transform.localPosition.x, transform.localPosition.y), Quaternion.identity);
+            //returnBoss();
             base.launch();
         }
         else if (size == new Vector3(size2, size2, 0))
@@ -97,10 +137,11 @@ public class SmallBossScript : PhysicsBlockScript {
             transform.localScale = new Vector3(size3, size3, 0);
             size = transform.localScale;
             maxSize = transform.localScale;
-            returnBoss();
+            Instantiate(smallBoss3, new Vector2(transform.localPosition.x, transform.localPosition.y), Quaternion.identity);
+            //returnBoss();
             base.launch();
         }
-        else if(size == new Vector3(size3,size3,0))
+        else if (size == new Vector3(size3, size3, 0))
         {
             Destroy(gameObject);
         }
@@ -129,31 +170,6 @@ public class SmallBossScript : PhysicsBlockScript {
         //        script.launch();
         //    }
         //}
-
-    }
-
-    public void returnBoss()
-    {
-        GameObject boss = Instantiate(smallBoss) as GameObject;
-        SmallBossScript script = boss.GetComponent<SmallBossScript>();
-
-        if (previousSize == new Vector3(size1, size1, 0))
-        {
-            script.setSize(new Vector3(size2, size2, 0));
-            script.size = transform.localScale;
-            script.maxSize = transform.localScale;
-
-            script.launch();
-        }
-        else if (previousSize == new Vector3(size2, size2, 0))
-        {
-            script.transform.localScale = new Vector3(size2, size2, 0);
-            script.size = transform.localScale;
-            script.maxSize = transform.localScale;
-
-            script.launch();
-        }
-        // smallBoss = Instantiate(smallBoss) as GameObject;
-        // return boss;
     }
 }
+

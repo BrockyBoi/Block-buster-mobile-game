@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
 
@@ -37,6 +38,8 @@ public class PhysicsBlockScript : MonoBehaviour
 
     //Block health variables
     public int health;
+    public GameObject textHealth;
+    Text displayHealth;
     public int maxHealth;
     public double healthRate;
 
@@ -72,6 +75,8 @@ public class PhysicsBlockScript : MonoBehaviour
     {
 
         destroyBlock();
+
+        //showHealth();
 
         // addHealth();
 
@@ -119,7 +124,7 @@ public class PhysicsBlockScript : MonoBehaviour
         nextHealth = currentTime + 1.5;
 
         //Size variables
-        transform.localScale = new Vector3(5, 5, 0);
+        transform.localScale = new Vector3(0, 0, 0);
         maxSize = new Vector3(60, 60, 0);
 
         //Block health variables
@@ -129,6 +134,13 @@ public class PhysicsBlockScript : MonoBehaviour
         clickedOn = false;
 
         //Boss Variables
+
+        textHealth = new GameObject();
+        textHealth.AddComponent<TextMesh>();
+
+        //showHealth();
+
+
     }
 
     public void newVariables(float myAttackRate, float myGrowRate, float myDamage, int myHealth, float myBossAttack)
@@ -281,19 +293,25 @@ public class PhysicsBlockScript : MonoBehaviour
 
         if (range <= 25)
         {
-            rb2d.AddForce(new Vector3(Random.Range(500f, 1000f), Random.Range(500f, 1000f), 0));
+            rb2d.AddForce(new Vector3(Random.Range(750f, 1000f), Random.Range(750f, 1000f), 0));
         }
         else if (range > 25 && range <= 50)
         {
-            rb2d.AddForce(new Vector3(Random.Range(-500f, -1000f), Random.Range(500f, 1000f), 0));
+            rb2d.AddForce(new Vector3(Random.Range(-750f, -1000f), Random.Range(750f, 1000f), 0));
         }
         else if (range > 50 && range <= 75)
         {
-            rb2d.AddForce(new Vector3(Random.Range(-500f, -1000f), Random.Range(-500f, -1000f), 0));
+            rb2d.AddForce(new Vector3(Random.Range(-750f, -1000f), Random.Range(-750f, -1000f), 0));
         }
         else
         {
-            rb2d.AddForce(new Vector3(Random.Range(500f, 1000f), Random.Range(-500f, -1000f), 0));
+            rb2d.AddForce(new Vector3(Random.Range(750f, 1000f), Random.Range(-750f, -1000f), 0));
         }
     }
+
+    //public virtual void showHealth()
+    //{
+    //    displayHealth.text = "" + health;
+    //    textHealth.GetComponent<TextMesh>().text = displayHealth.text;
+    //}
 }

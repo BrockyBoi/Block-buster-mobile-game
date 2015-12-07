@@ -23,8 +23,8 @@ public class MediumBossScript : PhysicsBlockScript {
 	// Update is called once per frame
 	public override void Update () {
         base.Update();
-        base.addHealth();
-        base.regenerate();
+        //base.addHealth();
+        //base.regenerate();
 
         attack();
 
